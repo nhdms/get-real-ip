@@ -1,4 +1,5 @@
 let WebRTC = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection || window.msRTCPeerConnection,
+    empty = () => {},
     handleCandidate = (candidate) => {
         //match just the IP address
         var ip_regex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/
@@ -14,7 +15,7 @@ let WebRTC = window.RTCPeerConnection || window.webkitRTCPeerConnection || windo
         }]
     })
 
-f.onicecandidate = function (a) {
+f.onicecandidate = (a) => {
     if (!a.candidate) f.close()
     else console.log(handleCandidate(a.candidate.candidate))
     //a.candidate && b(a.candidate.candidate)
@@ -22,6 +23,6 @@ f.onicecandidate = function (a) {
 
 f.createDataChannel("")
 
-f.createOffer(function (a) {
-    f.setLocalDescription(a, function () {}, function () {})
-}, function () {})
+f.createOffer((a) => {
+    f.setLocalDescription(a, empty, empty)
+}, empty)

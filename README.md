@@ -36,3 +36,5 @@ Stun servers list:
     username: '28224511:1379330808'
 }
 
+# How to implement STUN/TURN server
+File: webrtc.pdf

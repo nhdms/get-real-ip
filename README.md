@@ -37,4 +37,4 @@ Stun servers list:
 }
 
 # How to implement STUN/TURN server
-File: webrtc.pdf
+https://github.com/nhdms/get-real-ip/blob/master/webrtc.pdf
